@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         logTextView = findViewById(R.id.logTextView);
         scrollView = findViewById(R.id.scrollView2);
 
-        String message = "onCreate() was triggered!";
+        String message = "Metodo onCreate";
 
         Log.d("Cycle", message);
         appendLog(message);
@@ -41,17 +41,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button destroyButton = findViewById(R.id.destroyButton);
-
-        // This button will trigger the onDestroy() method
-        destroyButton.setOnClickListener(view -> finish());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        String message = "onStart() was triggered!";
+        String message = "Metodo onStart";
         Log.d("Cycle", message);
         appendLog(message);
     }
@@ -60,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        String message = "onResume() was triggered!";
-        Log.d("Cycle", message);
+        String message = "Metodo onResume";
+        Log.d("msg", message);
         appendLog(message);
     }
 
@@ -69,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        String message = "onPause() was triggered!";
-        Log.d("Cycle", message);
+        String message = "Metodo onPause";
+        Log.d("msg", message);
         appendLog(message);
     }
 
@@ -78,23 +74,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        String message = "onStop() was triggered!";
-        Log.d("Cycle", message);
+        String message = "Metodo onStop";
+        Log.d("msg", message);
         appendLog(message);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("Cycle", "onDestroy() was triggered!");
+        Log.d("msg", "Metodo onDestroy");
     }
 
     private void appendLog(String message) {
-        // Get current time with seconds
-        String timeStamp = new SimpleDateFormat("hh:mm:ss", Locale.getDefault()).format(new Date());
+
+        // Time with seconds
+        //String timeStamp = new SimpleDateFormat("hh:mm:ss", Locale.getDefault()).format(new Date());
 
         // Format the message with timestamp
-        String logMessage = "[" + timeStamp + "] " + message;
+        String logMessage = message;
 
         // Append the log message to the TextView
         logTextView.append(logMessage + "\n");
@@ -102,11 +99,5 @@ public class MainActivity extends AppCompatActivity {
         // Scrolls to the bottom automatically
         scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
 
-        // Limit to 15 lines in the TextView and make it scrollable
-        if (logTextView.getLineCount() > 15) {
-            String text = logTextView.getText().toString();
-            int start = text.indexOf("\n", text.indexOf("\n") + 1);
-            logTextView.setText(text.substring(start));
-        }
     }
 }
