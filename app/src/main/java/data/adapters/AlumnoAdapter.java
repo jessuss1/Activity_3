@@ -48,7 +48,7 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
     public void onBindViewHolder(@NonNull AlumnoAdapter.AlumnoViewHolder holder, int position) {
         Alumno alumno = listaAlumnos.get(position);
         holder.tvNombre.setText("Nombre: " + alumno.getNombre());
-        holder.tvCuenta.setText("No. de cuenta:" + alumno.getNumero_cuenta());
+        holder.tvCuenta.setText("No. de cuenta:" + alumno.getNumeroCuenta());
         holder.tvCarrera.setText("Carrera: " + alumno.getCarrera());
 
         //Evento click para cada alumno

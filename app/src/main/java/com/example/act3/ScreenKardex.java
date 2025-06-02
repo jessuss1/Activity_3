@@ -34,9 +34,9 @@ public class ScreenKardex extends AppCompatActivity {
         });
 
         Alumno alumno = getIntent().getParcelableExtra("alumno");
-        List<Semestre> semestres = alumno.getSemestres();
+
         RecyclerView rvSemestres = findViewById(R.id.rvSemestres);
         rvSemestres.setLayoutManager(new LinearLayoutManager(this));
-        rvSemestres.setAdapter(new SemestreAdapter(semestres));
+
     }
 }

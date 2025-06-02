@@ -13,12 +13,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 import data.models.Alumno;
+import data.models.Semestre;
 
 public class InfoDetallada extends AppCompatActivity {
 
-    TextView tvNombreEnDetalle, tvNoCuentaEnDetalle, tvPeriodoEnDetalle, tvCarreraEnDetalle, tvVerbo;
+    TextView tvNombreEnDetalle, tvNoCuentaEnDetalle, tvPeriodoEnDetalle, tvCarreraEnDetalle,tvVerbo, tvPromedio;
     Button btnMostrarKardex;
+    List<Semestre> semestres;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,7 +39,6 @@ public class InfoDetallada extends AppCompatActivity {
         Alumno alumno = getIntent().getParcelableExtra("alumno");
 
         tvVerbo = findViewById(R.id.tvVerbo);
-        btnMostrarKardex = findViewById(R.id.btnMostrarKardex);
         tvNombreEnDetalle = findViewById(R.id.tvNombreEnDetalle);
         tvCarreraEnDetalle = findViewById(R.id.tvCarreraEnDetalle);
         tvPeriodoEnDetalle = findViewById(R.id.tvPeriodoEnDetalle);
@@ -43,20 +46,15 @@ public class InfoDetallada extends AppCompatActivity {
 
         tvNombreEnDetalle.setText("Alumno: " + alumno.getNombre());
         tvCarreraEnDetalle.setText("Carrera: " + alumno.getCarrera());
-        tvPeriodoEnDetalle.setText("Periodo: " + alumno.getPeriodo());
-        tvNoCuentaEnDetalle.setText("No. de cuenta: " + alumno.getNumero_cuenta());
+        tvPeriodoEnDetalle.setText("Fase: " + alumno.getFase());
+        tvNoCuentaEnDetalle.setText("No. de cuenta: " + alumno.getNumeroCuenta());
         tvVerbo.setText(
             "El que suscribe, M.C. OSCAR MANUEL PEÑA BAÑUELOS, Director de la 4800-FACULTAD DE " +
-            "INFORMÁTICA MAZATLÁN, con clave U.A. 4800, de la Universidad Autónoma de Sinaloa, " +
-            "por medio de la presente hace constar que el (la) C." + alumno.getNombre() + " con " +
-            "No. de cuenta: "+alumno.getNumero_cuenta()+"; es alumno(a) de esta institución, en el periodo 8 de la carrera: 4 LICENCIATURA EN\n" +
-            "INGENIERÍA EN SISTEMAS DE INFORMACIÓN"
+            "INFORMÁTICA MAZATLÁN, con clave U.A. 4800, de la Universidad Autónoma de Sinaloa, por " +
+            "medio de la presente hace constar que el (la) C. " + alumno.getNombre() + " con No. de " +
+            "cuenta: "+alumno.getNumeroCuenta()+"; es alumno(a) de esta institución, en el periodo 8 " +
+            "de la carrera: 4 LICENCIATURA EN INGENIERÍA EN SISTEMAS DE INFORMACIÓN"
         );
-
-        btnMostrarKardex.setOnClickListener(view -> {
-            Intent intent = new Intent(InfoDetallada.this, ScreenKardex.class);
-            intent.putExtra("alumno", alumno);
-            startActivity(intent);
-        });
+//
     }
 }
