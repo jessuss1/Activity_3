@@ -1,10 +1,7 @@
 package com.example.act3;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,32 +9,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import data.adapters.SemestreAdapter;
+import data.models.Alumno;
+import data.models.Semestre;
 
-    Button btnListar;
+public class ScreenKardex extends AppCompatActivity {
+    TextView tvPrueba;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_screen_kardex);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btnListar = findViewById(R.id.ir_a_lista);
-        btnListar.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, ListaKardex.class);
-            startActivity(intent);
-        });
+        Alumno alumno = getIntent().getParcelableExtra("alumno");
+        List<Semestre> semestres = alumno.getSemestres();
+        RecyclerView rvSemestres = findViewById(R.id.rvSemestres);
+        rvSemestres.setLayoutManager(new LinearLayoutManager(this));
+        rvSemestres.setAdapter(new SemestreAdapter(semestres));
     }
-
-
 }

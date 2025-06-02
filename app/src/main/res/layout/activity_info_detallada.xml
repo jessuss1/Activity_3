@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InfoDetallada">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="#092F82"
+        android:textColor="@color/white"
+        android:text="Información Detallada"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textColor="#092F82"
+        android:text="Datos del alumno"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:background="#092F82"
+            android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagePlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="11dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_placeholder"
+            android:contentDescription="Imagen del alumno" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="65"
+            android:padding="5dp"
+            android:background="#C49E0D"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNombreEnDetalle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="10dp"
+                    android:text="Alumno: Jorge Plazola Salcido"/>
+
+                <TextView
+                    android:id="@+id/tvPeriodoEnDetalle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginTop="5dp"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:textColor="@color/white"
+                    android:text="Periodo: 8"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvNoCuentaEnDetalle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="No. de cuenta: 9312591-7 "/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvCarreraEnDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Carrera: Licenciatura en ingeniería en sistemas de información"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvVerbo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="verbo"/>
+
+
+
+    <Button
+        android:id="@+id/btnMostrarKardex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="Mostrar Kardex"
+        android:backgroundTint="#092F82"/>
+
+</LinearLayout>
+
